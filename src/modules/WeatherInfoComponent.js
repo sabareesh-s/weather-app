@@ -27,6 +27,10 @@ const Location=styled.span`
 font-size:28px;
 font-weight: bold;
 `
+const Location=styled.span`
+font-size:28px;
+font-weight: bold;
+`
 
 const WeatherInfoLabel=styled.span`
 font-size:14px;
@@ -45,6 +49,12 @@ const WeatherComponent =() => {
         </WeatherCondition>
         <Location>London, GB</Location>
         <WeatherInfoLabel>Weather Info</WeatherInfoLabel>
+        <WeatherInfoContainer>
+            <WeatherInfoComponent/>
+            <WeatherInfoComponent/>
+            <WeatherInfoComponent/>
+            <WeatherInfoComponent/>
+        </WeatherInfoContainer>
         </>
     )
 }
