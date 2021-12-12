@@ -1,7 +1,10 @@
+import Axios from "axios";
+import { useState } from "react";
 import styled from "styled-components";
 import CityComponent from "./modules/CityComponent";
 import WeatherComponent from "./modules/WeatherInfoComponent";
 
+const API_KEY = "79eb8ec2e81d4093ada08b2de06c34d3"
 const Container =styled.div`
   display: flex;
   flex-direction:column;
@@ -23,10 +26,20 @@ const AppLabel =styled.div`
 `;
 
 function App() {
+  const [city, setCity] = useState();
+  const [weather, setWeather] = useState();
+
+  const fetchWeather = async (e) =>{
+    e.preventDefault();
+    const response= 
+      await Axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
+      setWeather(response.data)
+    }
   return (
     <Container>
       <AppLabel>Weather App</AppLabel>
-      <WeatherComponent />
+      {weather?<WeatherComponent weather={weather}/>:<CityComponent setCity={setCity} fetchWeather={fetchWeather}/>}
     </Container>
   );
 }
