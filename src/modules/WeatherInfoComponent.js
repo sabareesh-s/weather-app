@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Axios from "axios";
+
 
 export const WeatherInfoIcons = {
     sunset: "/icons/temp.svg",

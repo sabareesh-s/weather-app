@@ -1,4 +1,4 @@
-import Axios from "axios";
+import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
 import CityComponent from "./modules/CityComponent";
@@ -29,12 +29,13 @@ function App() {
   const [city, setCity] = useState();
   const [weather, setWeather] = useState();
 
-  const fetchWeather = async (e) =>{
+    const fetchWeather = async (e) =>{
     e.preventDefault();
     const response= 
-      await Axios.get(
+      await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
       setWeather(response.data)
+      console.log(response)
     }
   return (
     <Container>

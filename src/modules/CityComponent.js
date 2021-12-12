@@ -50,12 +50,12 @@ const CityComponent =(props) => {
         <>
         <WeatherLogo src="/icons/perfect-day.svg"/>
         <ChooseCityLabel>Find weather of your city</ChooseCityLabel>
-        <SearchBox onSubmit={fetchWeather}>
+        <SearchBox >
             <input
              placeholder="City" 
              onChange={(e)=>setCity(e.target.value)}
             />
-            <button type="submit">Search</button>
+            <button onClick={fetchWeather}>Search</button>
         </SearchBox>
         </>
     )
