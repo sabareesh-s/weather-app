@@ -15,9 +15,9 @@ margin: 10px auto;
 const SearchBox=styled.span`
 display: flex;
 flex-direction: row;
-border: black solid 1px;
+border: #3d16e9 solid 1px;
 border-radius: 2px;
-color: black;
+color: #3d16e9;
 font-size: 18px;
 font-weight: bold;
 margin: 20px auto;
@@ -34,7 +34,7 @@ margin: 20px auto;
     padding: 10px;
     font-size: 14px;
     color: white;
-    background-color: black;
+    background-color: #3743ec;
     border: none;
     outline:none;
     font-weight: bold;
@@ -43,17 +43,26 @@ margin: 20px auto;
 
 `;
 
+const AppLabel =styled.div`
+  color:black;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+
 
 const CityComponent =(props) => {
     const {setCity,fetchWeather}=props;
     return (
         <>
-        <WeatherLogo src="/icons/perfect-day.svg"/>
+        <AppLabel>Weather App</AppLabel>
+        <WeatherLogo src="/icons/perfect-day.gif"/>
         <ChooseCityLabel>Find weather of your city</ChooseCityLabel>
         <SearchBox >
-            <input
+            <input type="text" 
              placeholder="City" 
              onChange={(e)=>setCity(e.target.value)}
+            
             />
             <button onClick={fetchWeather}>Search</button>
         </SearchBox>

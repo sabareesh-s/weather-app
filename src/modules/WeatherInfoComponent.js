@@ -6,23 +6,29 @@ export const WeatherInfoIcons = {
     sunrise: "/icons/temp.svg",
     humidity: "/icons/humidity.svg",
     wind: "/icons/wind.svg",
-    pressure: "/icons/pressure.svg",
+    visibility: "/icons/visibility.svg",
 };
 
 const WeatherCondition = styled.div`
 display:flex;
-flex-direction: row;
+flex-direction: column;
 align-items: center;
 width:100%;
 justify-content:space-between;
-margin: 30px auto;
+margin: 15px auto;
+font-size: 14px;
+
+
 `
 
 const Condition = styled.span`
-margin:20px auto;
+margin: 2px auto;
 font-size: 14px;
+
+margin-top: 25px;
 & span {
-    font-size: 28px;
+    font-size: 18px;
+    text-transform: capitalize;
 
 }
 `
@@ -31,18 +37,23 @@ const WeatherLogo=styled.img`
 width: 100px;
 height: 100px;
 margin: 5px auto;
+border-radius: 13px;
+background: #cecdfd;
 `
 const InfoContainer = styled.div`
   display: flex;
-  margin: 5px 10px;
+  margin: 5px 5px;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  
+  
 `;
 
 const Location=styled.span`
 font-size:28px;
 font-weight: bold;
+margin-bottom: 20px;
 `
 const InfoIcon = styled.img`
   width: 36px;
@@ -51,12 +62,13 @@ const InfoIcon = styled.img`
 const InfoLabel = styled.span`
   display: flex;
   flex-direction: column;
-  font-size: 14px;
+  font-size: 13px;
   margin: 15px;
   & span {
     font-size: 12px;
     text-transform: capitalize;
   }
+
 `;
 
 const WeatherInfoContainer=styled.div`
@@ -66,6 +78,8 @@ flex-direction: row;
 justify-content: space-evenly;
 align-items: center;
 flex-wrap: wrap;
+
+
 `
 
 const WeatherInfoComponent=(props)=>{
@@ -85,8 +99,9 @@ const WeatherInfoLabel=styled.span`
 font-size:14px;
 font-weight: bold;
 margin: 20px 25px 10px;
-text-align:start;
+text-align: center;
 width: 90%;
+
 `
 
 const WeatherComponent =(props) => {
@@ -98,19 +113,31 @@ const WeatherComponent =(props) => {
     return (
         <>
         <WeatherCondition>
-            <Condition>
-                <span>{`${Math.floor(weather?.main?.temp - 273)} °C`}</span> {` | ${weather?.weather[0].description}`}
-            </Condition>
-            <WeatherLogo src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}/>
-        </WeatherCondition>
+
         <Location>{`${weather?.name}, ${weather?.sys?.country}`}</Location>
+
+        <WeatherLogo src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}/>
+            
+            <Condition>
+                <span><strong>{`${Math.floor(weather?.main?.temp - 273)} °C`}</strong> {` , ${weather?.weather[0].description}`}</span>
+                
+            </Condition>
+                <br></br> Min : {`${Math.floor(weather?.main?.temp_min - 273)} °C`}
+                {" | "}Max : {`${Math.floor(weather?.main?.temp_max - 273)} °C`}
+        
+            
+            
+        </WeatherCondition>
+      
         <WeatherInfoLabel>Weather Info</WeatherInfoLabel>
         <WeatherInfoContainer>
             <WeatherInfoComponent name={isDay?"sunset":"sunrise"} 
             value={getTime(weather?.sys[isDay ? "sunset" : "sunrise"])} />
             <WeatherInfoComponent name="humidity" value={weather?.main?.humidity}/>
-            <WeatherInfoComponent name="wind" value={weather?.wind?.speed}/>
-            <WeatherInfoComponent name="pressure" value={weather?.main?.pressure}/>
+            <WeatherInfoComponent name="wind" value={
+                `${weather?.wind?.speed} ,${weather?.wind?.deg}°`
+                }/>
+            <WeatherInfoComponent name="visibility" value={weather?.visibility}/>
         </WeatherInfoContainer>
         </>
     )

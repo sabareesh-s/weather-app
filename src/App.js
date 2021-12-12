@@ -12,18 +12,14 @@ const Container =styled.div`
   align-items: center;
   box-shadow: 0 3px 6px 0 #555;
   padding: 20px 10px;
-  border-radius: 4px;
+  border-radius: 13px;
   width: 380px;
-  background: white;
+  background-color: white;
   font-family: 'Montserrat', sans-serif;
 `;
 
 
-const AppLabel =styled.div`
-  color:black;
-  font-size: 18px;
-  font-weight: bold;
-`;
+
 
 function App() {
   const [city, setCity] = useState();
@@ -39,7 +35,7 @@ function App() {
     }
   return (
     <Container>
-      <AppLabel>Weather App</AppLabel>
+      
       {weather?<WeatherComponent weather={weather}/>:<CityComponent setCity={setCity} fetchWeather={fetchWeather}/>}
     </Container>
   );
