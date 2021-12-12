@@ -1,8 +1,6 @@
 # React Weather App 
 
-![](weather.gif)
-
-### Demo - Deployed over Github Pages 
+### Demo - Deployed with Netlify
 https://reactjs-weather-search-app.netlify.app/
 
 ### API Used
