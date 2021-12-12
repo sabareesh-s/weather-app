@@ -9,10 +9,9 @@ margin: 40px auto;
 const ChooseCityLabel=styled.span`
 color: black;
 font-size: 18px;
-font-weight: bold;
 margin: 10px auto;
 `
-const SearchBox=styled.span`
+const SearchBox=styled.form`
 display: flex;
 flex-direction: row;
 border: #3d16e9 solid 1px;
@@ -22,12 +21,13 @@ font-size: 18px;
 font-weight: bold;
 margin: 20px auto;
 
+
 & input{
     padding: 10px;
     font-size: 14px;
     border: none;
     outline:none;
-    font-weight: bold;
+    font-family: 'Questrial';
 }
 
 & button{
@@ -38,7 +38,8 @@ margin: 20px auto;
     border: none;
     outline:none;
     font-weight: bold;
-    cursor: pointer;
+    cursor: pointer; 
+    font-family: 'Questrial';
 }
 
 `;
@@ -58,13 +59,13 @@ const CityComponent =(props) => {
         <AppLabel>Weather App</AppLabel>
         <WeatherLogo src="/icons/perfect-day.gif"/>
         <ChooseCityLabel>Find the weather in your city</ChooseCityLabel>
-        <SearchBox >
+        <SearchBox onSubmit={fetchWeather}>
             <input type="text" 
              placeholder="City" 
-             onChange={(e)=>setCity(e.target.value)}
-            
+             onChange={e=>setCity(e.target.value)}
+            // onKeyPress={(e) => e.key === 'Enter' && fetchWeather()}
             />
-            <button onClick={fetchWeather}>Search</button>
+            <button type={"submit"}>Search</button>
         </SearchBox>
         </>
     )

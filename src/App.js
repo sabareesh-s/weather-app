@@ -10,12 +10,12 @@ const Container =styled.div`
   flex-direction:column;
   margin: auto;
   align-items: center;
-  box-shadow: 0 3px 6px 0 #555;
+  box-shadow: 0 3px 6px 0 #505eaf;
   padding: 20px 10px;
   border-radius: 13px;
   width: 380px;
   background-color: white;
-  font-family: 'Montserrat', sans-serif; 
+  font-family: 'Questrial', sans-serif; 
 `;
 
 
