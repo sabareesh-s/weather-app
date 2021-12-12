@@ -57,7 +57,7 @@ const CityComponent =(props) => {
         <>
         <AppLabel>Weather App</AppLabel>
         <WeatherLogo src="/icons/perfect-day.gif"/>
-        <ChooseCityLabel>Find the weather of your city</ChooseCityLabel>
+        <ChooseCityLabel>Find the weather in your city</ChooseCityLabel>
         <SearchBox >
             <input type="text" 
              placeholder="City" 

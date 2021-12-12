@@ -15,7 +15,7 @@ const Container =styled.div`
   border-radius: 13px;
   width: 380px;
   background-color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif; 
 `;
 
 
