@@ -65,6 +65,7 @@ const CityComponent =(props) => {
              onChange={e=>setCity(e.target.value)}
             // onKeyPress={(e) => e.key === 'Enter' && fetchWeather()}
             />
+            
             <button type={"submit"}>Search</button>
         </SearchBox>
         </>

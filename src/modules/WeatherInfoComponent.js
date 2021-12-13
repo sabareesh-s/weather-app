@@ -71,6 +71,25 @@ const InfoLabel = styled.span`
 
 `;
 
+const BackButton = styled.div`
+    display: flex;
+    align-items: left;
+    position: absolute;
+    background-color: #a2a8fa; 
+    border: none;
+     color: white;
+     padding: 5px 10px;
+     text-align: left;
+      text-decoration: none;
+     display: inline-block;
+    font-size: 14px;
+    border-radius: 20px;
+    flex-direction: row;
+    margin-right: 310px;
+    cursor: pointer; 
+
+`
+
 const WeatherInfoContainer=styled.div`
 display: flex;
 width: 90%;
@@ -81,6 +100,8 @@ flex-wrap: wrap;
 
 
 `
+
+
 
 const WeatherInfoComponent=(props)=>{
     const {name,value}=props;
@@ -112,8 +133,9 @@ const WeatherComponent =(props) => {
     }
     return (
         <>
+        <BackButton onClick={() => window.location.reload(false)}> Back </BackButton>
         <WeatherCondition>
-
+        
         <Location>{`${weather?.name}, ${weather?.sys?.country}`}</Location>
 
         <WeatherLogo src={`http://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}/>
